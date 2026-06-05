@@ -1,0 +1,2 @@
+v26-supabase-sync-20260605
+Supabase sync attivo. Configura config.js con Project URL e anon public key.

@@ -1,9 +1,9 @@
-const CACHE_NAME = 'convoca-app-v25-cache-bust-cache-v1';
+const CACHE_NAME = 'convoca-app-v26-supabase-cache-v1';
 const APP_SHELL = [
   '/',
   '/index.html',
-  '/styles-v25.css?v=25',
-  '/app-v25.js?v=25',
+  '/styles-v26.css?v=26',
+  '/app-v26.js?v=26',
   '/config.js',
   '/manifest.webmanifest',
   '/icons/icon-192.png',

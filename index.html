@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="it">
 <head>
-  <meta name="convoca-build" content="v25-cache-bust-20260605">
+  <meta name="convoca-build" content="v26-supabase-sync-20260605">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>ConvocaApp Futsal</title>
-  <link rel="stylesheet" href="styles-v25.css?v=25" />
+  <link rel="stylesheet" href="styles-v26.css?v=26" />
 
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
@@ -18,7 +18,7 @@
 
 <script>
 (function(){
-  var BUILD = "v25-cache-bust-20260605";
+  var BUILD = "v26-supabase-sync-20260605";
   try {
     var current = localStorage.getItem("convoca_build_version");
     if (current !== BUILD) {
@@ -114,8 +114,9 @@
     </div>
   </div>
 
-  <script src="config.js"></script>
-  <script src="app-v25.js?v=25"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js?v=26"></script>
+  <script src="app-v26.js?v=26"></script>
 
 <script>
 if ('serviceWorker' in navigator) {
@@ -127,6 +128,6 @@ if ('serviceWorker' in navigator) {
 }
 </script>
 
-<div class="build-badge no-print">Versione v25-cache-bust-20260605</div>
+<div class="build-badge no-print">Versione v26-supabase-sync-20260605</div>
 </body>
 </html>
