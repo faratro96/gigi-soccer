@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta name="convoca-build" content="v25-cache-bust-20260605">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ConvocaApp Futsal</title>
+  <link rel="stylesheet" href="styles-v25.css?v=25" />
+
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <meta name="theme-color" content="#0b5cff">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="ConvocaApp">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+
+<script>
+(function(){
+  var BUILD = "v25-cache-bust-20260605";
+  try {
+    var current = localStorage.getItem("convoca_build_version");
+    if (current !== BUILD) {
+      localStorage.setItem("convoca_build_version", BUILD);
+      if ("caches" in window) {
+        caches.keys().then(function(keys) {
+          return Promise.all(keys.map(function(k) { return caches.delete(k); }));
+        }).finally(function(){
+          if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.getRegistrations().then(function(regs) {
+              return Promise.all(regs.map(function(r) { return r.unregister(); }));
+            }).finally(function() {
+              setTimeout(function() { window.location.reload(); }, 250);
+            });
+          } else {
+            setTimeout(function() { window.location.reload(); }, 250);
+          }
+        });
+      }
+    }
+  } catch(e) {}
+})();
+</script>
+
+
+<script>
+(function(){
+  try {
+    var params = new URLSearchParams(location.search);
+    if (params.has("resetassets")) {
+      if ("caches" in window) {
+        caches.keys().then(function(keys) {
+          return Promise.all(keys.map(function(k) { return caches.delete(k); }));
+        }).finally(function(){
+          if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.getRegistrations().then(function(regs) {
+              return Promise.all(regs.map(function(r) { return r.unregister(); }));
+            }).finally(function() {
+              location.replace(location.pathname + "?v=25");
+            });
+          } else {
+            location.replace(location.pathname + "?v=25");
+          }
+        });
+      }
+    }
+  } catch(e) {}
+})();
+</script>
+
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>ConvocaApp</h1>
+      <p>Gestionale futsal: CSI, Serie D, calendario, convocazioni, statistiche e sponsor</p>
+    </div>
+    <div class="status-box">
+      <span id="modeBadge" class="badge">Modalità giocatore</span>
+      <button id="loginBtn" class="btn secondary">Accedi staff</button>
+      <button id="logoutBtn" class="btn secondary hidden">Esci staff</button>
+    </div>
+  </header>
+
+  <nav class="nav" id="mainNav">
+    <button data-view="dashboard" class="active">Home</button>
+    <button data-view="calendar">Calendario</button>
+    <button data-view="callups">Convocazioni</button>
+    <button data-view="players" class="staff-only">Giocatori</button>
+    <button data-view="trainings" class="staff-only">Allenamenti</button>
+    <button data-view="matches" class="staff-only">Partite</button>
+    <button data-view="stats">Statistiche</button>
+    <button data-view="sponsors" class="staff-only">Sponsor</button>
+    <button data-view="backup" class="staff-only">Backup</button>
+  </nav>
+
+  <main class="container">
+    <section id="dashboard" class="view active"></section>
+    <section id="calendar" class="view"></section>
+    <section id="callups" class="view"></section>
+    <section id="players" class="view"></section>
+    <section id="trainings" class="view"></section>
+    <section id="matches" class="view"></section>
+    <section id="stats" class="view"></section>
+    <section id="sponsors" class="view"></section>
+    <section id="backup" class="view"></section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-card">
+      <button id="closeModal" class="x">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app-v25.js?v=25"></script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/service-worker.js').catch(function (err) {
+      console.warn('Service worker non registrato:', err);
+    });
+  });
+}
+</script>
+
+<div class="build-badge no-print">Versione v25-cache-bust-20260605</div>
+</body>
+</html>

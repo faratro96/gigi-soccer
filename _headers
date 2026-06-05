@@ -1,0 +1,21 @@
+/*
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
+
+/service-worker.js
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
+
+/styles-v25.css
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/app-v25.js
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/VERSION.txt
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/manifest.webmanifest
+  Cache-Control: no-cache, no-store, must-revalidate
